@@ -5,7 +5,7 @@
  - **Table of Microservice Repositories**:  
      - A table listing each microservice repository and its GitHub link.  
      - Example:
-      | Service | Description | Github Repo |
+| Service | Description | Github Repo |
 | --- | --- | --- |
 | `store-front` | [store-front-L8](https://github.com/khad0062/store-front-L8)|
 | `store-admin` | [store-admin-L8](https://github.com/khad0062/store-admin-L8) |
