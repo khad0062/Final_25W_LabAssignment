@@ -18,3 +18,13 @@
 | `mongodb` | MongoDB instance for persisted data | [mongodb](https://github.com/docker-library/mongo) |
 | `virtual-customer` | Simulates order creation on a scheduled basis (Rust) | [virtual-customer-L8](https://github.com/ramymohamed10/virtual-customer-L8) |
 | `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker-L8](https://github.com/ramymohamed10/virtual-worker-L8) |
+
+
+
+   - **Table of Microservice Repositories**:  
+     - A table listing each microservice repository and its GitHub link.  
+     - Example:
+       | **Service**         | **Repository Link**                       |
+       |---------------------|-------------------------------------------|
+       | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
+       | Order-Service       | `<GitHub Link>`                           |
