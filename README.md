@@ -22,12 +22,15 @@
    - **Table of Microservice Repositories**:  
      - A table listing each microservice repository and its GitHub link.  
      - Example:
-       | **Service**         | **Repository Link**                       |
+       | **Service**         | **Docker Hub Link**                       |
        |---------------------|-------------------------------------------|
        | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
        | Order-Service       | [Order-Service](https://hub.docker.com/r/khad0062/order-service)
-       | p                       |
-       | Makeline-service           | [makeline-service](https://hub.docker.com/r/khad0062/makeline-service)|
+       | product-service     |                       |
+       | makeline-service    | [makeline-service](https://hub.docker.com/r/khad0062/makeline-service)|
+       | ai- serivce         |  [ai-service](https://hub.docker.com/r/khad0062/ai-service)  |
+       | virtual-worker      |  [virtual-worker](https://hub.docker.com/r/khad0062/virtualworker)  |
+       |
 
 # Step 5: Set Up the Azure Service Bus
 
