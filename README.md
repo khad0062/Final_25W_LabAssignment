@@ -28,3 +28,105 @@
        |---------------------|-------------------------------------------|
        | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
        | Order-Service       | `<GitHub Link>`                           |
+
+# Step 5: Set Up the Azure Service Bus
+
+You'll set up a Service Bus namespace, create a queue, and configure both the Order and Makeline services to communicate securely using shared access policies.
+
+---
+
+## Task 1: Create the Service Bus and Queue
+
+Use the Azure CLI to create your Service Bus namespace and queue:
+
+```bash
+az servicebus namespace create \
+  --name asb-cst8915-la2 \
+  --resource-group rg-cst8915-la2
+
+az servicebus queue create \
+  --name orders \
+  --namespace-name asb-cst8915-la2 \
+  --resource-group rg-cst8915-la2
+```
+
+---
+
+## Task 2: Set Up Shared Access Policies
+
+### Sender Policy (for Order Service):
+
+```bash
+az servicebus queue authorization-rule create \
+  --name sender \
+  --namespace-name asb-cst8915-la2 \
+  --resource-group rg-cst8915-la2 \
+  --queue-name orders \
+  --rights Send
+```
+
+### Listener Policy (for Makeline Service):
+
+```bash
+az servicebus queue authorization-rule create \
+  --name listener \
+  --namespace-name asb-cst8915-la2 \
+  --resource-group rg-cst8915-la2 \
+  --queue-name orders \
+  --rights Listen
+```
+
+---
+
+## Task 3: Configure the Order Service
+
+### Get the Access Key:
+
+- Go to the **Azure portal > Service Bus resource > Shared Access Policies**
+- Click on the **sender** policy and copy the **Primary Key**
+
+### Base64 Encode the Key:
+
+```bash
+echo -n "<sender-access-key>" | base64
+```
+> Replace `<sender-access-key>` with the actual key you copied.
+
+### Get the Hostname:
+
+- Go to the **Overview** section of the Service Bus resource and copy the **Host name**
+
+### Update Your Deployment Files:
+
+- Edit `secrets.yaml` and replace `Base64-encoded-Service-Bus-Sender-Key` with the encoded key.
+- Edit `order-service.yaml` and set `ORDER_QUEUE_HOSTNAME` to the hostname.
+
+---
+
+## Task 4: Configure the Makeline Service
+
+### Get the Access Key:
+
+- Go to **Shared Access Policies > listener** and copy the **Primary Key**
+
+### Base64 Encode the Key:
+
+```bash
+echo -n "<listener-access-key>" | base64
+```
+> Replace `<listener-access-key>` with the actual key.
+
+### Get the Hostname:
+
+- Again, from the **Overview** section, copy the **Host name**
+
+### Update Your Deployment Files:
+
+- Edit `secrets.yaml` and replace `Base64-encoded-Service-Bus-Listener-Key` with the encoded value.
+- Edit `makeline-service.yaml` and set `ORDER_QUEUE_URI` to:
+
+```plaintext
+amqps://<hostname>
+```
+> Replace `<hostname>` with the actual hostname from Azure.
+
