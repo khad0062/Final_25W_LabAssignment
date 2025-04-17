@@ -1,5 +1,5 @@
 
-# Final_25W_LabAssignment
+# 25W_LabAssignment
 
 
  - **Table of Microservice Repositories**:  
@@ -19,9 +19,8 @@
 
 
 
-   - **Table of Microservice Repositories**:  
-     - A table listing each microservice repository and its GitHub link.  
-     - Example:
+   - **Table of Docker Images**:   
+
        | **Service**         | **Docker Hub Link**                       |
        |---------------------|-------------------------------------------|
        | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
@@ -31,7 +30,7 @@
        | makeline-service    | [makeline-service](https://hub.docker.com/r/khad0062/makeline-service)|
        | ai- serivce         |  [ai-service](https://hub.docker.com/r/khad0062/ai-service)  |
        | virtual-worker      |  [virtual-worker](https://hub.docker.com/r/khad0062/virtualworker)  |
-       |
+       | virtual-customer    |  [virtual-customer](https://hub.docker.com/r/khad0062/virtual-customer) |
 
 # Step 5: Set Up the Azure Service Bus
 
