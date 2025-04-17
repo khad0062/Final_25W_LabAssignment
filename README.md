@@ -25,8 +25,9 @@
        | **Service**         | **Docker Hub Link**                       |
        |---------------------|-------------------------------------------|
        | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
+       | store-admin         | [store-admin](https://hub.docker.com/r/khad0062/store-admin)     |
        | Order-Service       | [Order-Service](https://hub.docker.com/r/khad0062/order-service)
-       | product-service     |                       |
+       | product-service     |  [product-service](https://hub.docker.com/r/khad0062/product-service)                  |
        | makeline-service    | [makeline-service](https://hub.docker.com/r/khad0062/makeline-service)|
        | ai- serivce         |  [ai-service](https://hub.docker.com/r/khad0062/ai-service)  |
        | virtual-worker      |  [virtual-worker](https://hub.docker.com/r/khad0062/virtualworker)  |
