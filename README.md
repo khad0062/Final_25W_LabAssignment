@@ -27,7 +27,9 @@
        | **Service**         | **Repository Link**                       |
        |---------------------|-------------------------------------------|
        | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
-       | Order-Service       | [Order-Service](https://hub.docker.com/r/khad0062/order-service)                          |
+       | Order-Service       | [Order-Service](https://hub.docker.com/r/khad0062/order-service)
+       | p                       |
+       | Makeline-service           | [makeline-service](https://hub.docker.com/r/khad0062/makeline-service)|
 
 # Step 5: Set Up the Azure Service Bus
 
