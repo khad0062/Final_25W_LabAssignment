@@ -27,9 +27,9 @@ spec:
             - name: ORDER_QUEUE_USERNAME
               value: "sender"
             - name: ORDER_QUEUE_PASSWORD
-             valueFrom:
+            - valueFrom:
                 secretKeyRef:
-                  name: service_bus_secret_key
+                  name: service-bus-secret-key
                   key: SERVICE_BUS_SENDER_SECRET
             - name: ORDER_QUEUE_NAME
               value: "orderqueue"

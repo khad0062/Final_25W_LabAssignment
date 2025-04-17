@@ -38,7 +38,7 @@ spec:
             - name: ORDER_QUEUE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: service-bus-secret
+                  name: service-bus-secret-key
                   key: SERVICE_BUS_LISTENER_SECRET
             - name: ORDER_QUEUE_TRANSPORT
               value: "tls"
