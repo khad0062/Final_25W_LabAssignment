@@ -23,7 +23,7 @@
 
        | **Service**         | **Docker Hub Link**                       |
        |---------------------|-------------------------------------------|
-       | Store-Front         | `<https://hub.docker.com/r/khad0062/store-front>`                           |
+       | Store-Front         | [store-front](https://hub.docker.com/r/khad0062/store-front)|
        | store-admin         | [store-admin](https://hub.docker.com/r/khad0062/store-admin)     |
        | Order-Service       | [Order-Service](https://hub.docker.com/r/khad0062/order-service)
        | product-service     |  [product-service](https://hub.docker.com/r/khad0062/product-service)                  |
