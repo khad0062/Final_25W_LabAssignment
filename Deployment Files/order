@@ -32,7 +32,7 @@ spec:
                   name: service_bus_secret_key
                   key: SERVICE_BUS_SENDER_SECRET
             - name: ORDER_QUEUE_NAME
-              value: "best_buy_orderqueue"
+              value: "orderqueue"
             - name: FASTIFY_ADDRESS
               value: "0.0.0.0"
           resources: # Resource allocation
