@@ -3,21 +3,19 @@
 
 
  - **Table of Microservice Repositories**:  
-     - A table listing each microservice repository and its GitHub link.  
-     - Example:
+     - A table listing each microservice repository and its GitHub link. 
 
-| Service | Github Repo |
-| --- |--- |
-| `store-front` | [store-front-L8](https://github.com/khad0062/store-front-L8)|
-| `store-admin` | [store-admin-L8](https://github.com/khad0062/store-admin-L8) |
-| `order-service`| [order-service-L8](https://github.com/khad0062/order-service-L8) |
-| `product-service`| [product-service-L8](https://github.com/khad0062/product-service-L8) |
-| `makeline-service` | This service handles processing orders from the queue and completing them (Golang) | [makeline-service-L8](https://github.com/ramymohamed10/makeline-service-L8) |
-| `ai-service` | Optional service for adding generative text and graphics creation (Python) | [ai-service-L8](https://github.com/ramymohamed10/ai-service-L8) |
-| `rabbitmq` | RabbitMQ for an order queue | [rabbitmq](https://github.com/docker-library/rabbitmq) |
-| `mongodb` | MongoDB instance for persisted data | [mongodb](https://github.com/docker-library/mongo) |
-| `virtual-customer` | Simulates order creation on a scheduled basis (Rust) | [virtual-customer-L8](https://github.com/ramymohamed10/virtual-customer-L8) |
-| `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker-L8](https://github.com/ramymohamed10/virtual-worker-L8) |
+| Service |Description|Github Repo |
+| --- |--- |---|
+| `store-front` |Web app for customers to place orders (Vue.js)| [store-front](https://github.com/khad0062/store-front-L8)|
+| `store-admin` |Web app used by store employees to view orders in queue and manage products (Vue.js)| [store-admin](https://github.com/khad0062/store-admin-L8) |
+| `order-service`|This service is used for placing orders (Javascript)	| [order-service](https://github.com/khad0062/order-service-L8) |
+| `product-service`|This service is used to perform CRUD operations on products (Rust)	| [product-service](https://github.com/khad0062/product-service-L8) |
+| `makeline-service` | This service handles processing orders from the queue and completing them (Golang) | [makeline-service](https://github.com/khad0062/makeline-service-L8) |
+| `ai-service` | Optional service for adding generative text and graphics creation (Python) | [ai-service](https://github.com/khad0062/ai-service-L8) |
+| `mongodb` | MongoDB instance for persisted data | [mongodb](https://github.com/khad0062/mongo) |
+| `virtual-customer` | Simulates order creation on a scheduled basis (Rust) | [virtual-customer](https://github.com/khad0062/virtual-customer) |
+| `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker](https://github.com/khad0062/virtual-worker) |
 
 
 
