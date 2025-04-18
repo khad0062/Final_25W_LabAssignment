@@ -21,7 +21,7 @@ Together, these components represent industry-standard practices in CI/CD, Infra
 
 ## Demo Video
 
-Check out the [Demo Video](https://youtu.be/qCxUtX_D3Ck) to see:
+Check out the [Demo Video](https://www.youtube.com/watch?v=XMgmN0jchdI) to see:
 - The application running in Azure Kubernetes Service (AKS)
 - AI-driven content generation via GPT-4 and DALL-E
 - Seamless Azure Service Bus integration
