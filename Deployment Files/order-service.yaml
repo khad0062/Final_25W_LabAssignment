@@ -16,23 +16,20 @@ spec:
         "kubernetes.io/os": linux
       containers:
         - name: order-service
-          image: khad0062/order-service:latest # Custom image for order service
+          image: khad0062/order-service:v1 # Custom image for order service
           ports:
             - containerPort: 3000 # Order service listens on this port
           env: # Environment variables for configuration
             - name: ORDER_QUEUE_HOSTNAME
-              value: "best-buy-canada.servicebus.windows.net"
+              value: "bestbuycanada.servicebus.windows.net"
             - name: ORDER_QUEUE_PORT
               value: "5671"
             - name: ORDER_QUEUE_USERNAME
               value: "sender"
             - name: ORDER_QUEUE_PASSWORD
-            - valueFrom:
-                secretKeyRef:
-                  name: service-bus-secret-key
-                  key: SERVICE_BUS_SENDER_SECRET
+              value: "CxJa3ARQdcDYrQgR7DyXXzrhOcGV5i1mv+ASbP/h/FQ="
             - name: ORDER_QUEUE_NAME
-              value: "orderqueue"
+              value: "orders"
             - name: FASTIFY_ADDRESS
               value: "0.0.0.0"
           resources: # Resource allocation
