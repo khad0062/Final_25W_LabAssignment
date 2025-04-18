@@ -1,6 +1,31 @@
 
 # 25W_LabAssignment
+ Best Buy Store Application
 
+## Overview
+
+Welcome to the **Best Buy Store Application**!
+
+This project is a modern, cloud-native, microservices-based e-commerce demo application designed to highlight key principles of scalable application architecture. Built using a polyglot approach and event-driven design, it integrates both managed and open-source backing services. When deployed to a Kubernetes cluster, the app demonstrates the power of container orchestration and cloud-native strategies.
+
+### Key Features
+
+- **Store-Front (Customer View)** – Allows customers to browse products and place orders with ease.
+- **Store-Admin (Employee Dashboard)** – Enables staff to manage inventory and oversee incoming orders.
+- **AI Integration** – Leverages GPT-4 and DALL-E to auto-generate engaging product descriptions and visuals.
+- **Event-Driven Messaging** – Uses Azure Service Bus to process orders in a reliable, scalable way.
+- **Persistent Storage** – Stores all product and order data in MongoDB.
+- **Microservices Architecture** – Multiple services built in different languages (Vue.js, Node.js, Rust, Python, Go) communicate over well-defined APIs.
+
+Together, these components represent industry-standard practices in CI/CD, Infrastructure as Code, and scalable deployment models.
+
+## Demo Video
+
+Check out the [Demo Video](https://youtu.be/qCxUtX_D3Ck) to see:
+- The application running in Azure Kubernetes Service (AKS)
+- AI-driven content generation via GPT-4 and DALL-E
+- Seamless Azure Service Bus integration
+- CI/CD pipelines in action, managing build, test, and deploy flows
 
  - **Table of Microservice Repositories**:  
      - A table listing each microservice repository and its GitHub link. 
