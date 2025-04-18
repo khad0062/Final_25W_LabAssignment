@@ -329,7 +329,7 @@ amqps://<hostname>
 
 Set up a centralized, reusable CI/CD pipeline using GitHub Actions to build, test, push Docker images, and deploy to Kubernetes for multiple microservices.
 ## 1. Create a Central Reusable Workflow
-[Central resuable workflow]()
+[Central resuable workflow](.github/workflows)
 ## 2. Call the Reusable Workflow in Each Microservice Repo
 
 In each microservice repository, add:
