@@ -36,7 +36,10 @@ spec:
             - name: ORDER_QUEUE_USERNAME
               value: "listener"
             - name: ORDER_QUEUE_PASSWORD
-              value: "waSqNV+j1vmYS7V51zWeZ3A7f1ZL5kYrf+ASbLoFQ3o"
+              valueFrom:
+                secretKeyRef:
+                  name: best-buy-makeline-service-secret
+                  key: ORDER_QUEUE_PASSWORD
             - name: ORDER_QUEUE_TRANSPORT
               value: "tls"
             - name: ORDER_QUEUE_NAME
