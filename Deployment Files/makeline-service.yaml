@@ -17,7 +17,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
         - name: makeline-service
-          image: khad0062/makeline-service:latest # Custom Makeline service image
+          image: khad0062/makeline-service:v1 # Custom Makeline service image
           ports:
             - containerPort: 3001 # Makeline service listens on this port
           env: # Environment variables for configuration
@@ -30,20 +30,17 @@ spec:
             # - name: ORDER_QUEUE_TRANSPORT
             #   value: "tls"
             - name: ORDER_QUEUE_URI
-              value: "amqps://best-buy-canada.servicebus.windows.net"
+              value: "amqps://bestbuycanada.servicebus.windows.net"
             - name: ORDER_QUEUE_PORT
               value: "5671"
             - name: ORDER_QUEUE_USERNAME
               value: "listener"
             - name: ORDER_QUEUE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: service-bus-secret-key
-                  key: SERVICE_BUS_LISTENER_SECRET
+              value: "waSqNV+j1vmYS7V51zWeZ3A7f1ZL5kYrf+ASbLoFQ3o"
             - name: ORDER_QUEUE_TRANSPORT
               value: "tls"
             - name: ORDER_QUEUE_NAME
-              value: "orderqueue"
+              value: "orders"
             - name: ORDER_DB_URI
               value: "mongodb://mongodb:27017" # MongoDB connection string
             - name: ORDER_DB_NAME
