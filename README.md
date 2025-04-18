@@ -62,6 +62,149 @@ Check out the [Demo Video](https://youtu.be/qCxUtX_D3Ck) to see:
 
      ![](assests/bestbuy_architecture.png)
 
+     
+# Getting Started with Best Buy Store Application Deployment
+
+We will be deploying this application in **Azure Kubernetes Service (AKS)**.
+
+---
+
+## Step 0: Pre-requisites
+
+### Task 1: Install `kubectl`
+
+1. Follow the official installation guide to install `kubectl` on your system:  
+   👉 [kubectl Installation Guide](https://kubernetes.io/docs/tasks/tools/)
+
+2. After installation, verify it by running:
+   ```bash
+   kubectl version --client
+   ```
+   You should see the client version displayed, confirming a successful installation.
+
+### Task 2: Install Azure CLI
+
+If you haven't already installed the Azure CLI, follow the guide:  
+👉 [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+
+---
+
+## Step 1: Clone the Best Buy Store Repository
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aka-pharande/CST8915-LA2-BestBuy-App.git
+   ```
+
+2. Review the `Deployment Files` folder:
+   - Contains YAML files for deploying Kubernetes resources like services, deployments, StatefulSets, ConfigMaps, and Secrets.
+   - You can deploy services individually or use `kustomize.yaml` to deploy all at once.
+
+---
+
+## Step 2: Set Up the AKS Cluster
+
+### Create a Resource Group
+
+1. Log in to [Azure Portal](https://portal.azure.com).
+2. Search for **Resource Groups** and click **Create**.
+3. Provide:
+   - **Name**: `CST8915`
+   - **Region**: `Canada Central`
+4. Click **Review + Create** and then **Create**.
+
+### Create the AKS Cluster
+
+1. In the portal, search for **Kubernetes services** and click **Create**.
+2. Under the **Basics** tab:
+   - **Subscription**: Your active subscription.
+   - **Resource Group**: `CST8915`
+   - **Cluster name**: `best_buy_cluster`
+   - **Region**: Same as resource group
+   - **Cluster preset**: Dev/Test
+   - Disable upgrades and schedules
+   - Authentication: Local accounts with Kubernetes RBAC
+
+3. Under **Node pools**:
+   - Rename `agentpool` to `masterpool`
+     - Size: `D2as_v4`, Manual scale, Count: 1
+   - Add another node pool:
+     - Name: `workerspool`, Mode: User, Size: `D2as_v4`, Count: 1
+
+4. Click **Review + Create** and **Create**.
+
+### Connect to the AKS Cluster
+
+1. In the AKS cluster Overview, click **Connect**, choose **Azure CLI**.
+2. Run:
+   ```bash
+   az login
+   az account set --subscription '<subscription-id>'
+   az aks get-credentials --resource-group CST8915 --name best_buy_cluster
+   ```
+
+---
+
+## Step 3: Set Up AI Backing Services
+
+To enable product description and image generation using Azure OpenAI:
+
+### Task 1: Create Azure OpenAI Service
+
+1. In Azure Portal, click **Create a Resource** > search for **Azure OpenAI**.
+2. Choose **East US** region.
+3. Select or create a resource group, choose **Standard** pricing.
+4. Click **Review + Create** > **Create**.
+
+### Task 2: Deploy GPT-4 and DALL-E 3
+
+1. Open the OpenAI resource.
+2. Go to **Model Deployments** > click **Add Deployment**.
+3. Deploy:
+   - **GPT-4** → `gpt-4`
+   - **DALL-E 3** → `dalle-3`
+4. Note:
+   - Deployment names
+   - Endpoint URLs
+
+### Task 3: Get API Keys
+
+1. Go to **Keys and Endpoints** in the OpenAI resource.
+2. Copy **API Key 1** and endpoint URL.
+3. Base64 encode the key:
+   ```bash
+   echo -n "<your-api-key>" | base64
+   ```
+
+### Task 4: Update AI Service Deployment
+
+#### Modify `secrets.yaml`
+
+- Replace `Base64-encoded-API-Key` with the base64-encoded API key.
+
+#### Modify `ai-service.yaml`
+
+Update the environment variables:
+
+```yaml
+- name: AZURE_OPENAI_API_VERSION
+  value: "2024-07-01-preview"
+- name: AZURE_OPENAI_DEPLOYMENT_NAME
+  value: "gpt-4"
+- name: AZURE_OPENAI_ENDPOINT
+  value: "https://<your-openai-resource-name>.openai.azure.com/"
+- name: AZURE_OPENAI_DALLE_ENDPOINT
+  value: "https://<your-openai-resource-name>.openai.azure.com/"
+- name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
+  value: "dall-e-3"
+```
+
+---
+
+Continue to the next steps to configure Azure Service Bus and deploy the entire application.
+
+
+
 # Step 5: Set Up the Azure Service Bus
 
 You'll set up a Service Bus namespace, create a queue, and configure both the Order and Makeline services to communicate securely using shared access policies.
