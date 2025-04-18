@@ -74,7 +74,7 @@ We will be deploying this application in **Azure Kubernetes Service (AKS)**.
 ### Task 1: Install `kubectl`
 
 1. Follow the official installation guide to install `kubectl` on your system:  
-   👉 [kubectl Installation Guide](https://kubernetes.io/docs/tasks/tools/)
+[kubectl Installation Guide](https://kubernetes.io/docs/tasks/tools/)
 
 2. After installation, verify it by running:
    ```bash
@@ -85,7 +85,7 @@ We will be deploying this application in **Azure Kubernetes Service (AKS)**.
 ### Task 2: Install Azure CLI
 
 If you haven't already installed the Azure CLI, follow the guide:  
-👉 [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+[Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 ---
 
@@ -202,8 +202,6 @@ Update the environment variables:
 ---
 
 Continue to the next steps to configure Azure Service Bus and deploy the entire application.
-
-
 
 # Step 5: Set Up the Azure Service Bus
 
