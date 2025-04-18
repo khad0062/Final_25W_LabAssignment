@@ -1,6 +1,6 @@
 
-# 25W_LabAssignment
- Best Buy Store Application
+
+ # Best Buy Store Application
 
 ## Overview
 
@@ -304,16 +304,21 @@ amqps://<hostname>
 ```
 > Replace `<hostname>` with the actual hostname from Azure.
 
-5.  **Deploy the Application:**
+## Task 5.  Deploy the Application
     * Use the provided Kubernetes yaml files to deploy the application:
         * `kubectl apply -f secrets.yaml`
         * `kubectl apply -f kustomization.yaml`
 
-6.  **Verify the Deployment:**
+## Task 6.  Verify the Deployment
     * Use `kubectl get pods` to check the status of the deployed pods.  Make sure all pods are running and ready.
     * Use `kubectl get services` to check the services.
     * Use `kubectl logs <pod-name>` to check the logs of individual pods for any errors.
 
-7.  **Access the Application:**
+## Task 7.  Access the Application
     * Access the Store-Front and Store-Admin applications by visiting the exposed EXTERNAL-IPS.
     * Use the command `kubectl get services` to retrieve the IPs
+    
+#  Issues and Limitations
+
+* **Azure Service Bus Integration:**
+    * The application was unable to send messages to the Azure Service Bus queue.  Although the Service Bus namespace received the request, the orders queue did not receive any incoming messages.  No errors were observed in the application logs.  Further investigation into the connection string, queue configuration, and potential network issues is needed.
