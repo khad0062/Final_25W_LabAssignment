@@ -27,6 +27,8 @@ Check out the [Demo Video](https://youtu.be/qCxUtX_D3Ck) to see:
 - Seamless Azure Service Bus integration
 - CI/CD pipelines in action, managing build, test, and deploy flows
 
+
+## Architecture
  - **Table of Microservice Repositories**:  
      - A table listing each microservice repository and its GitHub link. 
 
@@ -56,6 +58,9 @@ Check out the [Demo Video](https://youtu.be/qCxUtX_D3Ck) to see:
        | ai- serivce         |  [ai-service](https://hub.docker.com/r/khad0062/ai-service)  |
        | virtual-worker      |  [virtual-worker](https://hub.docker.com/r/khad0062/virtualworker)  |
        | virtual-customer    |  [virtual-customer](https://hub.docker.com/r/khad0062/virtual-customer) |
+
+
+     ![](assests/bestbuy_architecture.png)
 
 # Step 5: Set Up the Azure Service Bus
 
