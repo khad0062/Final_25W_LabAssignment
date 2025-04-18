@@ -17,7 +17,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
         - name: ai-service
-          image: khad0062/ai-service
+          image: khad0062/ai-service:v1
           ports:
             - containerPort: 5001
           env:
@@ -34,22 +34,19 @@ spec:
             - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
               value: "dall-e-3"
             - name: OPENAI_API_KEY # always required
-              valueFrom:
-                secretKeyRef:
-                  name: openai-api-secret
-                  key: OPENAI_API_KEY
+              value: "xwSxYg36SmpffhD1LjtFj6cJODYqDxvsITvVYjfUhwut7TS30WJAJQQJ99BDACfhMk5XJ3w3AAABACOGnhG3"
           resources:
             requests:
-              cpu: 100m
+              cpu: 250m
               memory: 256Mi
             limits:
-              cpu: 250m
-              memory: 512Mi
+              cpu: 1
+              memory: 1Gi
           startupProbe:
             httpGet:
               path: /health
               port: 5001
-            initialDelaySeconds: 60
+            initialDelaySeconds: 120
             failureThreshold: 3
             periodSeconds: 5
           readinessProbe:
