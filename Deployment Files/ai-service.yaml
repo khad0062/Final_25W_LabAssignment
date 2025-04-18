@@ -34,7 +34,10 @@ spec:
             - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
               value: "dall-e-3"
             - name: OPENAI_API_KEY # always required
-              value: "xwSxYg36SmpffhD1LjtFj6cJODYqDxvsITvVYjfUhwut7TS30WJAJQQJ99BDACfhMk5XJ3w3AAABACOGnhG3"
+              valueFrom:
+                secretKeyRef:
+                  name: openai-api-secret
+                  key: OPENAI_API_KEY
           resources:
             requests:
               cpu: 250m
