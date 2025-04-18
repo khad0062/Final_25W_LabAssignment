@@ -334,7 +334,7 @@ Set up a centralized, reusable CI/CD pipeline using GitHub Actions to build, tes
 
 In each microservice repository, add:
 
-### `.github/workflows/ci_cd.yaml`
+ .github/workflows/ci_cd.yaml
 
 ```yaml
 name: CI/CD for Microservice
@@ -345,9 +345,9 @@ on:
 
 jobs:
   ci-cd:
-    uses: your-org/ci-cd-workflows/.github/workflows/reusable_ci_cd.yaml@main
+    uses: khad0062/store-front-L8/.github/workflows/ci_cd.yaml@main
     with:
-      image_name: your-dockerhub-user/your-service-name:latest
+      image_name: khadk0062/store-front:v1
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
