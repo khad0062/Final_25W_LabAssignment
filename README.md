@@ -322,3 +322,51 @@ amqps://<hostname>
 
 * **Azure Service Bus Integration:**
     * The application was unable to send messages to the Azure Service Bus queue.  Although the Service Bus namespace received the request, the orders queue did not receive any incoming messages.  No errors were observed in the application logs.  Further investigation into the connection string, queue configuration, and potential network issues is needed.
+
+
+
+# Centralized Reusable CI/CD Workflow with GitHub Actions
+
+Set up a centralized, reusable CI/CD pipeline using GitHub Actions to build, test, push Docker images, and deploy to Kubernetes for multiple microservices.
+## 1. Create a Central Reusable Workflow
+[Central resuable workflow]()
+## 2. Call the Reusable Workflow in Each Microservice Repo
+
+In each microservice repository, add:
+
+### `.github/workflows/ci_cd.yaml`
+
+```yaml
+name: CI/CD for Microservice
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci-cd:
+    uses: your-org/ci-cd-workflows/.github/workflows/reusable_ci_cd.yaml@main
+    with:
+      image_name: your-dockerhub-user/your-service-name:latest
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}
+```
+
+---
+
+### 3. Add Required Secrets
+
+In **each microservice repo**, go to:
+
+`Settings → Secrets and variables → Actions` and add:
+
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
+- `KUBECONFIG`
+
+You now have a **centralized CI/CD pipeline** that:
+- Builds and pushes Docker images
+- Deploys to Kubernetes
+
