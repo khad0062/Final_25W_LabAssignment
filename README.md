@@ -93,10 +93,10 @@ If you haven't already installed the Azure CLI, follow the guide:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/aka-pharande/CST8915-LA2-BestBuy-App.git
+   https://github.com/ramymohamed10/algonquin-pet-store-on-steroids
    ```
 
-2. Review the `Deployment Files` folder:
+2. Review the `Deployment Files` folder and also the microservices link:
    - Contains YAML files for deploying Kubernetes resources like services, deployments, StatefulSets, ConfigMaps, and Secrets.
    - You can deploy services individually or use `kustomize.yaml` to deploy all at once.
 
@@ -215,13 +215,13 @@ Use the Azure CLI to create your Service Bus namespace and queue:
 
 ```bash
 az servicebus namespace create \
-  --name asb-cst8915-la2 \
-  --resource-group rg-cst8915-la2
+  --name bestbuycanada \
+  --resource-group CST8915
 
 az servicebus queue create \
   --name orders \
-  --namespace-name asb-cst8915-la2 \
-  --resource-group rg-cst8915-la2
+  --namespace-name bestbuycanada  \
+  --resource-group CST8915
 ```
 
 ---
@@ -233,8 +233,8 @@ az servicebus queue create \
 ```bash
 az servicebus queue authorization-rule create \
   --name sender \
-  --namespace-name asb-cst8915-la2 \
-  --resource-group rg-cst8915-la2 \
+  --namespace-name bestbuycanada \
+  --resource-group CST8915 \
   --queue-name orders \
   --rights Send
 ```
@@ -244,8 +244,8 @@ az servicebus queue authorization-rule create \
 ```bash
 az servicebus queue authorization-rule create \
   --name listener \
-  --namespace-name asb-cst8915-la2 \
-  --resource-group rg-cst8915-la2 \
+  --namespace-name bestbuycanada \
+  --resource-group CST8915 \
   --queue-name orders \
   --rights Listen
 ```
