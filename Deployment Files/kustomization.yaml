@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - mongodb.yaml
+  - order-service.yaml
+  - makeline-service.yaml
+  - product-service.yaml
+  - store-front.yaml
+  - store-admin.yaml
+  - ai-service.yaml
